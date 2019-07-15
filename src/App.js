@@ -3,8 +3,8 @@ import Recipe from './Recipe';
 import './App.css';
 
 const App = () => {
-  const APP_ID = '347edf82';
-  const APP_KEY = '3c170209cd196389b3d155bf7d2438ff';
+  const APP_ID = '<your app id>';
+  const APP_KEY = '<your app key>';
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
@@ -39,15 +39,17 @@ const App = () => {
           Search
         </button>
       </form>
+      <div className='recipes'>
       {recipes.map(recipe => (
         <Recipe 
         key={recipe.recipe.label}
         title={recipe.recipe.label} 
         calories={recipe.recipe.calories}
         image={recipe.recipe.image}
-        ingredients={recipe.recipe.igredients}
+        ingredients={ recipe.recipe.ingredients || [] }
          />
       ))}
+      </div>
     </div>
   )
 }
